@@ -1,8 +1,7 @@
 services:
   - docker
 
-before_script: export VERSION=8.16
-script: docker build -t "$DOCKER_USERNAME"/node-awscli:$VERSION .
+script: docker build -t "$DOCKER_USERNAME"/node-awscli:8.16 .
 
 deploy:
   skip-cleanup: true
