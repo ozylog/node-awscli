@@ -1,4 +1,4 @@
-FROM node:8
+FROM node:8.16
 RUN mkdir -p /dir
 ADD dependencies.sh /dir/
 WORKDIR /dir
