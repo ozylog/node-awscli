@@ -1,13 +1,12 @@
 services:
   - docker
 
-script:
-  - docker build -t "$DOCKER_USERNAME"/node-awscli:8.0 .
+before_script: bash .env
+script: docker build -t "$DOCKER_USERNAME"/node-awscli:$VERSION .
 
 deploy:
+  skip-cleanup: true
   provider: script
-  script:
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - docker push "$DOCKER_USERNAME"/node-awscli:8.0
+  script: bash docker_push
   on:
     branch: master
